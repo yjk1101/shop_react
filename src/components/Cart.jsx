@@ -31,7 +31,9 @@ const Cart = () => {
                         <thead className="bg-gray-50 text-gray-700 uppercase tracking-wider font-semibold">
                             <tr>
                                 <th scope="col" className="px-6 py-3.5">id</th>
+                                <th scope="col" className="px-6 py-3.5">이미지</th>
                                 <th scope="col" className="px-6 py-3.5">상품명</th>
+                                <th scope="col" className="px-6 py-3.5">금액</th>
                                 <th scope="col" className="px-6 py-3.5">수량</th>
                                 <th scope="col" className="px-6 py-3.5 text-center">변경하기</th>
                             </tr>
@@ -41,7 +43,11 @@ const Cart = () => {
                                 cart.map(item => 
                                 <tr className="hover:bg-gray-50 transition-colors" key={item.id}>
                                     <td className="px-6 py-4 text-gray-400 font-normal">{item.id}</td>
+                                    <td>
+                                        <img src={import.meta.env.BASE_URL + item.imgUrl} alt="" width="100px;" />
+                                    </td>
                                     <td className="px-6 py-4 font-semibold text-gray-900">{item.item}</td>
+                                    <td className="px-6 py-4 font-semibold text-gray-900">{item.price.toLocaleString()}원</td>
                                     <td className="px-6 py-4">
                                         <span className="bg-gray-100 text-gray-800 text-xs px-2.5 py-1 rounded-full font-bold">{item.amount}개</span>
                                     </td>
@@ -63,25 +69,8 @@ const Cart = () => {
                     </button>
                 </div>
             </div>
-
-            <Order />
         </div>
     )
-}
-
-const Order = () => {
-    const dispatch = useDispatch()
-
-    return (
-        <div className="max-w-7xl mx-auto px-4 w-full py-8">
-            <h4 className="text-2xl font-bold text-gray-900 tracking-tight mb-6">
-                주문하기 페이지
-            </h4>
-            <button className="w-xs bg-green-500 hover:bg-green-600 text-white font-semibold text-base py-3.5 px-6 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg active:scale-98 transform flex items-center justify-center gap-2" onClick={()=>{dispatch(addItem({id:4, item:'오렌지', amount:1}))}}>
-                오렌지 주문하기
-            </button>
-        </div>
-   )
 }
 
 export default Cart
