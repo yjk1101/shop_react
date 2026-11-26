@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
-  base: '/shop_react'
+  // base: '/shop_react'
 })

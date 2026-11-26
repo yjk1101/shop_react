@@ -44,7 +44,7 @@ const Cart = () => {
                                 <tr className="hover:bg-gray-50 transition-colors" key={item.id}>
                                     <td className="px-6 py-4 text-gray-400 font-normal">{item.id}</td>
                                     <td>
-                                        <img src={import.meta.env.BASE_URL + item.imgUrl} alt="" width="100px;" />
+                                        <img src={item.imgUrl} alt="" width="100px;" />
                                     </td>
                                     <td className="px-6 py-4 font-semibold text-gray-900">{item.item}</td>
                                     <td className="px-6 py-4 font-semibold text-gray-900">{item.price.toLocaleString()}원</td>
